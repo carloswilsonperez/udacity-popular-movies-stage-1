@@ -21,6 +21,10 @@ public class MovieAdapter extends BaseAdapter {
         this.mContext = context;
     }
 
+    private static class ViewHolder {
+        ImageView mImageViewMovie;
+    }
+
     /**
      * How many items are in the data set represented by this Adapter.
      *
@@ -51,7 +55,7 @@ public class MovieAdapter extends BaseAdapter {
      */
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     /**
@@ -73,18 +77,30 @@ public class MovieAdapter extends BaseAdapter {
      * @return A View corresponding to the data at the specified position.
      */
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView movie_poster;
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        ViewHolder viewHolder;
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            movie_poster = (ImageView) inflater.inflate(R.layout.item_movie, parent, false);
+            convertView = inflater.inflate(R.layout.item_movie, parent, false);
+
+            viewHolder = new ViewHolder();
+
+            viewHolder.mImageViewMovie = (ImageView)
+                    convertView.findViewById(R.id.iv_image);
+            convertView.setTag(viewHolder);
         } else {
-            movie_poster = (ImageView) convertView;
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        Picasso.with(mContext).load(MovieActivity.movieImages.get(position)).into(movie_poster);
+        // Adding Placeholder and Error Fallback
 
-        return movie_poster;
+        Picasso.with(mContext)
+                .load(MovieActivity.movieImages.get(position))
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error)
+                .into(viewHolder.mImageViewMovie);
+
+        return convertView;
     }
 }

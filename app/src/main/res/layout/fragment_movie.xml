@@ -10,10 +10,10 @@
         android:id="@+id/gv_movie"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:columnWidth="150dp"
+        android:columnWidth="@dimen/column_width"
         android:numColumns="auto_fit"
-        android:verticalSpacing="0dp"
-        android:horizontalSpacing="0dp"
+        android:verticalSpacing="@dimen/vertical_horizontal_spacing"
+        android:horizontalSpacing="@dimen/vertical_horizontal_spacing"
         android:stretchMode="columnWidth">
 
     </GridView>

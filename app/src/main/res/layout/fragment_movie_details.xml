@@ -23,27 +23,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="22sp"
-                android:layout_marginTop="64dp" />
+                android:textSize="@dimen/movie_title_text_size"
+                android:layout_marginTop="@dimen/movie_title_margin" />
 
             <TextView
                 android:id="@+id/movie_release_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="18sp"
+                android:textSize="@dimen/movie_average_rating_and_release_date_text_size"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:layout_below="@+id/movie_title" />
 
             <ImageView
                 android:id="@+id/movie_poster"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/movie_poster_layout_height"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/movie_poster_description"
                 android:src="@drawable/placeholder_poster_1"
-                android:layout_marginTop="32dp" />
+                android:layout_marginTop="@dimen/movie_poster_margin" />
 
             <TextView
                 android:id="@+id/movie_average_rating"
@@ -52,16 +52,16 @@
                 android:gravity="center"
                 android:layout_below="@+id/movie_poster"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="19dp"
-                android:textSize="18sp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:textSize="@dimen/movie_average_rating_and_release_date_text_size"
                 tools:text="Rating: 8.5 / 10" />
 
             <TextView
                 android:id="@+id/movie_overview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:textSize="14sp"
+                android:padding="@dimen/activity_vertical_margin"
+                android:textSize="@dimen/movie_overview_text_size"
                 tools:text="@string/placeholder_movie_overview" />
 
         </LinearLayout>
